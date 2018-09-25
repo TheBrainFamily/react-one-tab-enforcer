@@ -33,7 +33,7 @@ to
 ```javascript
 import { withOneTabEnforcer } from "react-one-tab-enforcer"
 (..)
-export default withOneTabEnforcer(App)
+export default withOneTabEnforcer()(App)
 ```
 
 2. Profit! ;-)
@@ -44,7 +44,7 @@ This will work, and display a default "Sorry! You can only have this application
 To make sure we won't collide with other apps that use the same package, we should set a unique app name as an option:
 
 ```javascript
-export default withOneTabEnforcer(App, {appName: "my-unique-app-name"})
+export default withOneTabEnforcer({appName: "my-unique-app-name"})(App)
 ```
 
 ## Configuration
@@ -63,7 +63,7 @@ For example, if you want to use a custom component that shows up when the user t
 
 ```javascript
 const DifferentWarningComponent = () => <div>NO WAY!</div>
-export default withOneTabEnforcer(App, {appName: "my-unique-app-name", OnlyOneTabComponent: DifferentWarningComponent})
+export default withOneTabEnforcer({appName: "my-unique-app-name", OnlyOneTabComponent: DifferentWarningComponent})(App)
 ```
 
 
