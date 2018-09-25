@@ -71,7 +71,7 @@ export function withOneTabEnforcer(
     OnlyOneTabComponent = DefaultOnlyOneTabComponent,
     localStorageTimeout = 15 * 1000, // 15,000 milliseconds = 15 seconds.
     localStorageResetInterval = 10 * 1000, // 10,000 milliseconds = 10 seconds.
-    localStorageTabKey = "test-application-browser-tab",
+    appName = "default-app-name", // has to be unique!
     sessionStorageGuidKey = "browser-tab-guid"
   } = {}
 ) {
@@ -81,7 +81,7 @@ export function withOneTabEnforcer(
       testTab(
         localStorageTimeout,
         localStorageResetInterval,
-        localStorageTabKey,
+        appName,
         sessionStorageGuidKey
       )
     ) {
