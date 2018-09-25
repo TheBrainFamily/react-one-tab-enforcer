@@ -65,29 +65,28 @@ const DefaultOnlyOneTabComponent = () => (
 );
 
 // eslint-disable-next-line import/prefer-default-export
-export function withOneTabEnforcer(
-  WrappedComponent,
-  {
-    OnlyOneTabComponent = DefaultOnlyOneTabComponent,
-    localStorageTimeout = 15 * 1000, // 15,000 milliseconds = 15 seconds.
-    localStorageResetInterval = 10 * 1000, // 10,000 milliseconds = 10 seconds.
-    appName = "default-app-name", // has to be unique!
-    sessionStorageGuidKey = "browser-tab-guid"
-  } = {}
-) {
-  // ...and returns another component...
-  return props => {
-    if (
-      testTab(
-        localStorageTimeout,
-        localStorageResetInterval,
-        appName,
-        sessionStorageGuidKey
-      )
-    ) {
-      return <WrappedComponent {...props} />;
-    } else {
-      return <OnlyOneTabComponent />;
-    }
+export function withOneTabEnforcer({
+  OnlyOneTabComponent = DefaultOnlyOneTabComponent,
+  localStorageTimeout = 15 * 1000, // 15,000 milliseconds = 15 seconds.
+  localStorageResetInterval = 10 * 1000, // 10,000 milliseconds = 10 seconds.
+  appName = "default-app-name", // has to be unique!
+  sessionStorageGuidKey = "browser-tab-guid"
+} = {}) {
+  return WrappedComponent => {
+    // ...and returns another component...
+    return props => {
+      if (
+        testTab(
+          localStorageTimeout,
+          localStorageResetInterval,
+          appName,
+          sessionStorageGuidKey
+        )
+      ) {
+        return <WrappedComponent {...props} />;
+      } else {
+        return <OnlyOneTabComponent />;
+      }
+    };
   };
 }
