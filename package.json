@@ -1,0 +1,53 @@
+{
+  "name": "react-one-tab-enforcer",
+  "version": "1.0.0",
+  "description": "Prevent users from opening your react app in multiple tabs",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint",
+    "eslint": "eslint"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run eslint -- --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBrainFamily/react-one-tab-enforcer.git"
+  },
+  "keywords": [
+    "react",
+    "tab",
+    "enforce"
+  ],
+  "author": "Łukasz Gandecki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheBrainFamily/react-one-tab-enforcer/issues"
+  },
+  "homepage": "https://github.com/TheBrainFamily/react-one-tab-enforcer#readme",
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.0.0-rc.15",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "peerDependencies": {
+    "react": ">=15.0.1",
+    "react-dom": ">=15.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
