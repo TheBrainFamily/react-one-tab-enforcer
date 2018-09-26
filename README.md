@@ -56,7 +56,6 @@ appName = "default-app-name", // This one you know already - has to be unique!
 OnlyOneTabComponent = DefaultOnlyOneTabComponent, // Component showed in place of the requested one.
 localStorageTimeout = 15 * 1000, // (15 seconds) In case that the component will not succeeded clearing the localStorage on closing (desktop PC and a sudden power loss), this is the maximum time your user will have to wait to open your app again in the same browser on the same computer.
 localStorageResetInterval = 10 * 1000, // (10 seconds) this is how often the above timeout is reset 
-sessionStorageGuidKey = "browser-tab-guid"
 ```
 
 For example, if you want to use a custom component that shows up when the user tries to open your app in a new tab, do:
@@ -68,7 +67,8 @@ export default withOneTabEnforcer({appName: "my-unique-app-name", OnlyOneTabComp
 
 
 ## Credit
-This package is closely based on a code from this [jsfiddle](https://jsfiddle.net/yex8k2ts/30/) by [timkellypa](https://stackoverflow.com/users/1257546/timkellypa) . It was packaged for seemless react usage with a bit of a tweaking and made configurable. 
+This package is closely based on a code from this [jsfiddle](https://jsfiddle.net/yex8k2ts/30/) by [timkellypa](https://stackoverflow.com/users/1257546/timkellypa) .
+ and [this jquery demo](https://www.jqueryscript.net/demo/Prevent-Webpage-Opened-Multiple-Tabs-duplicateWindow/). It was packaged for seemless react usage with a bit of a tweaking and made configurable. Unfortunatelly, the code from timkellypa didn't work correctly with chrome "duplicate" functionality.
 
 ## Todo
-Tests.. This was needed "for yesterday", so I took a few shortcuts (including reusing a smart code from timkellypa!) and verified manually! Sorry folks. I do have an idea how to test this, and if time allows, I will. Otherwise, I'm happy to take PRs! :-) CircleCI is all setup for a test-driven workflow. 
+Tests.. This was needed "for yesterday", so I took a few shortcuts (including reusing a smart code from timkellypa and the demo above!) and verified manually! Sorry folks. I do have an idea how to test this, and if time allows, I will. Otherwise, I'm happy to take PRs! :-) CircleCI is all setup for a test-driven workflow. 
