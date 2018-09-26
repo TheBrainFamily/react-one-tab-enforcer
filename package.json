@@ -1,6 +1,6 @@
 {
   "name": "react-one-tab-enforcer",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Prevent users from opening your react app in multiple tabs",
   "main": "dist/index.js",
   "scripts": {
